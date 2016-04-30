@@ -1,0 +1,36 @@
+Kata: 
+"Everybody knows a little german, right? But remembering the correct articles is a tough job. Write yourself a little helper, that returns the noun with the matching article:
+
+each noun containing less than 2 vowels has the article "das"
+each noun containing 2/3 vowels has the article "die"
+each noun containing more than 3 vowels has the article "der"
+Caution: Vowels are "a,e,i,o,u". Umlaute (ä ö ü) are also being counted!
+
+(This Kata is a joke, there is no such grammar rule!)"
+
+My solution: 
+function derDieDas(wort){
+  let vowels = 0;
+  for (var i=0; i < wort.length; i++) {
+    if(["a", "e", "i", "o", "u", "ä", "ö", "ü"].indexOf(wort[i].toLowerCase())!== -1) { 
+      vowels++; 
+    } 
+  } 
+  if (vowels < 2) { return "das ".concat(wort); } 
+  else if (vowels <= 3) { return "die ".concat(wort); } 
+  else { return "der ".concat(wort); }
+}
+
+Favorite solution: 
+function derDieDas(wort) {
+  var n = wort.split(/[aeiouäöü]/i).length - 1
+  if (n < 2) return "das " + wort
+  if (n > 3) return "der " + wort
+  return "die " + wort
+}
+
+Some notes: 
+- JavaScript does not seem to have the equivalent of Python's "in". [list].indexOf(value) !== -1 seems to be the closest equivalent based on what I could find. 
+- Seems to be a few ways to do string concatination: str1 + str2, str1.concat(str2), "str 1 ${wort}". Probably the first and the third are my favorites (they're at least closest to how it works in Python) 
+- The Airbnb style guide has a lot of stuff about when to use let / const / var, but most of the kata just go with "var". Probably the let / const / var difference is a bigger deal when you have a large codebase and multiple programmers so mutability will introduce bugs -- not the kind of coding challenge that comes up with these kata. 
+- I like the multiple "ifs" that don't use the "else". Makes the code more compact while still being pretty readable. 
