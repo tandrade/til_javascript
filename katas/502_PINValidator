@@ -1,0 +1,20 @@
+Kata:
+Given a string, return True if it is of length 4 or length 6 and only contains digits. 
+
+My solution: 
+def validatePIN(pin) { 
+  if (! /^\d+$/.test(pin)) { return false; } 
+  if (pin.length === 4) { return true; } 
+  if (pin.length === 6) { return false; } 
+  return false; 
+
+} 
+
+Favorite solutions: 
+- All of them are just fancier regexes. 
+
+Learned: 
+- I'm used to Python's regex library, so the fact that I didn't have to use any third party dependencies for regexes made me happy 
+- I did look up how to validate this in Javascript and the first answer pointed me to a regex. I was actually hoping there would be a built in function. I believe Python has one. 
+- I'm still learning === vs. == in Javascript. I was told to always do the former, but I'm not sure why. Looking at other kata, I'm seeing people do both, so the distinct is not immediately obvious to me and probably requires further research.
+
