@@ -1,0 +1,26 @@
+Kata:
+"You might know some pretty large perfect squares. But what about the NEXT one?
+
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+
+If the parameter is itself not a perfect square, than -1 should be returned. You may assume the parameter is positive." 
+
+My solution: 
+function findNextSquare(sq) {
+  // Return the next square if sq if a perfect square, -1 otherwise
+  var root = Math.sqrt(sq); 
+  if (root % 1 === 0) { return Math.pow((root + 1), 2); } 
+  return -1;
+}
+
+Top solution:
+function findNextSquare(sq) {
+  return Math.sqrt(sq)%1? -1 : Math.pow(Math.sqrt(sq)+1,2);
+}
+
+Notes: 
+- I liked that Math just worked right out the box -- no need to import a library or anything. People complain about overreliance on libraries in JS projects, so it's nice to see what Just Works. Although I guess the thing with having a more browser-based language is that different browsers run different versions of JS, so that's a pain. 
+- I looked up the % 1 trick, expecting JS to have something more defined to identify if a number is a float or an int. It's definitely a clever solution. 
+- I don't much like the evaluate? yes : no. I know there are developers out there who really like those kind of functions but I find them less readable.
+- I guess with Javascript though you do really see the advantage of writing more compact code? 
+- Still in love with not defining 'else' statements 
