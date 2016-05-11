@@ -1,0 +1,26 @@
+Problem: Complete the function so that it finds the mean of the three scores passed to it and returns the letter value associated with that grade.
+
+Best solution: 
+function getGrade (s1, s2, s3) {
+  avg = (s1+s2+s3)/3;
+  if (avg < 60)  return "F";
+    else if (avg < 70) return "D";
+    else if (avg < 80) return "C";
+    else if (avg < 90) return "B";
+    else return "A";
+}
+
+My solution: 
+function getGrade (s1, s3, s3) {
+  var avg = (s1 + s2 + s3) / 3; 
+  if (avg >= 90) { return "A"; } 
+  if (avg >= 80) { return "B"; } 
+  if (avg >= 70) { return "C"; } 
+  if (avg >= 60) { return "D"; } 
+  return "F";  
+} 
+
+Notes: 
+- Thought about using a switch statement but with a range it didn't seem like a good fit
+- Glad my solution looks like the top solution! 
+- Apparently you don't need to include parens with a one line 'if' statement (just like in Java) but I'm told it's a better idea to always include them, so that there are fewer changes if more logic gets added after that 'if' statement  

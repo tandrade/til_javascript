@@ -1,0 +1,38 @@
+Kata: 
+The goal of this exercise is to convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+My kata: 
+function duplicateEncode(word){
+   word = word.toLowerCase();
+   var counts = {}; 
+   for (i=0; i < word.length; i++) { 
+      var letter = word[i]; 
+      if (letter in counts) counts[letter] += 1; 
+      else counts[letter] = 1; 
+   } 
+   
+   var newString = "";
+   for (i=0; i < word.length; i++) { 
+       var count = counts[word[i]]; 
+       if (count === 1) { newString += "(" } 
+       else { newString += ")"; } 
+   } 
+   
+   return newString;
+}
+
+Best solution: 
+function duplicateEncode(word) {
+  var letters = word.toLowerCase().split('')
+  return letters.map(function(c, i) {
+    return letters.some(function(x, j) { return x === c && i !== j }) ? ')' : '('
+  }).join('')
+}
+
+Notes: 
+- In Python, you can get a dictionary that has a default value of 0 (Counter) -- apparently this functionality does not exist in Javascript! Interesting to see
+- With the nested anonymous functions, this is the most JavaScript-y kata I have yet seen in Codewars 
+- I tend to avoid anonymous functions 
+- I also tend to avoid .map() 
+- But this kata is so much more compact than mine, I'm so impressed
+- Definitely a kind of thinking I should get myself into 
