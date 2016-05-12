@@ -1,0 +1,27 @@
+Kata: Find the number of divisors of a positive integer n.
+
+My solution: 
+function getDivisorsCnt(n){
+    var total = 0; 
+    var divisor = n; 
+    while (divisor > 0) { 
+      if (n % divisor === 0) total += 1;
+      divisor -= 1;
+    } 
+    return total;
+}
+
+Best solution:
+function getDivisorsCnt(n) {
+  for (var d = 0, i = n; i > 0; i--) {
+    if (n % i == 0) d++;
+  }
+  
+  return d;
+}
+
+Notes: 
+- Code wars gave me an easier kata, but I think it's a little too easy: didn't learn much from this one 
+- I still don't understand the difference between == and ===, I don't think this will be solved via kata, probably have to either build something more complicated or just read up more on the question 
+- I did not know / think of declaring the value to return in the for loop: I can see the appeal (one less line of code!) but it seems slightly less readable 
+- To test whether I really understood it, I did not use { } in the one line 'if' statement 
