@@ -1,0 +1,40 @@
+Kata:
+Help Suzuki rake his garden!
+
+The monastery has a magnificent Zen garden made of white gravel and rocks and it is raked diligently everyday by the monks. Suzuki having a keen eye is always on the lookout for anything creeping into the garden that must be removed during the daily raking such as insects or moss.
+
+You will be given a string representing the garden. Rake out any items that are not a rock or gravel and replace them with gravel such.
+
+My solution:
+function rakeGarden(garden) {
+  var rakedGarden = [];
+  var all_items = garden.split(" ");
+  for (var i=0; i < all_items.length; i++) { 
+     if (all_items[i] === "rock" || all_items[i] === "gravel") { 
+       rakedGarden.push(all_items[i]); 
+     }
+     else { 
+       rakedGarden.push("gravel");
+     } 
+  } 
+  return rakedGarden.join(" ");
+}
+
+
+Best solution:
+function rakeGarden(garden) { 
+
+  var tab = garden.split(" ");
+  for(var i=0; i<tab.length;i++){
+    if(tab[i]!='rock' && tab[i]!='gravel'){
+      tab[i] = 'gravel';
+    }
+  }
+  var rakedGarden = tab.join(" ");
+
+  return rakedGarden;
+ }
+
+Thoughts: 
+- Learned some more list techniques! I keep thinking the equivalent of .append() is .add() in JS -- it's .push() 
+- The 'best' solution is a lot more compact: I should have thought about ways to cut down on the code before I submitted 
